@@ -39,9 +39,9 @@ Things you may want to cover:
 |nickname|string|null: false|
 |password|string|null: false|
 ### Association
-- has_many :exhibition, dependent :destroy
-- belongs_to :card, dependent :destroy
-- belongs_to :purchase, dependent :destroy
+- has_many :exhibition, dependent: :destroy
+- belongs_to :card, dependent: :destroy
+- belongs_to :purchase, dependent: :destroy
 
 ## exhibitionテーブル
 |Column|Type|Options|
@@ -60,9 +60,9 @@ Things you may want to cover:
 |image_id|integer|null: false|
 ### Association
 - has_many :image
-- belongs_to :user, dependent :destroy
-- belongs_to :brand, dependent :destroy
-- belongs_to :category, dependent :destroy
+- belongs_to :user, dependent: :destroy
+- belongs_to :brand, dependent: :destroy
+- belongs_to :category, dependent: :destroy
 - belongs_to_active_hash :prefecture
 
 # purchaseテーブル
