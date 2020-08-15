@@ -28,25 +28,24 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|family-name|string|null: false|
-|first-name|string|null: false|
-|family-name-kana|string|null: false|
-|first-name-kana|string|null: false|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
 |email|string|null: false|
 |birthday|date|null: false|
-|user-image|string||
+|image|string||
 |introduction|text||
 |nickname|string|null: false|
 |password|string|null: false|
 ### Association
-- has_many :exhibition, dependent: :destroy
-- belongs_to :card, dependent: :destroy
-- belongs_to :purchase, dependent: :destroy
+- has_many :exhibitions, dependent: :destroy
+- has_many :cards, dependent: :destroy
+- has_many :purchases, dependent: :destroy
 
-## exhibitionテーブル
+## exhibitionsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
 |name|string|null: false|
 |explanatory|text|null: false|
 |cost|string|null: false|
@@ -59,31 +58,27 @@ Things you may want to cover:
 |status|string|null: false|
 |image_id|integer|null: false|
 ### Association
-- has_many :image
+- has_many :images
 - belongs_to :user, dependent: :destroy
 - belongs_to :brand, dependent: :destroy
 - belongs_to :category, dependent: :destroy
 - belongs_to_active_hash :prefecture
 
-# purchaseテーブル
+# purchasesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|family-name|string|null: false|
-|first-name|string|null: false|
-|family-name-kana|string|null: false|
-|first-name-kana|string|null: false|
-|post-code|string|null: false|
+|post_code|string|null: false|
 |prefecture_code|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
-|building-name|string||
-|phone-number|string||
+|building_name|string||
+|phone_number|string||
 ### Association
 - belongs_to :user
 * jp_prefectureを使用する
 
-# cardテーブル
+# cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
@@ -93,7 +88,7 @@ Things you may want to cover:
 - belongs_to :user
 * pay.jpを使用する
 
-# imageテーブル
+# imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |exhibition_id|integer|null: false, foreign_key: true|
@@ -101,18 +96,19 @@ Things you may want to cover:
 ### Association
 - belongs_to :exhibition
 
-# brandテーブル
+# brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |exhibition_id|integer|null: false, foreign_key: true|
 |name|string|null: false|
 ### Association
-- has_many :exhibition
+- has_many :exhibitions
 
-# categoryテーブル
+# categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |exhibition_id|integer|null: false, foreign_key: true|
 |name|string|nnull: false|
 ### Association
-- has_many :exhibition
+- has_many :exhibitions
+* gem ancestryを使用する
