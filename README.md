@@ -108,7 +108,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |exhibition_id|integer|null: false, foreign_key: true|
-|name|string|nnull: false|
+|name|string|null: false|
 ### Association
 - has_many :exhibitions
 * gem ancestryを使用する
