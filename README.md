@@ -58,9 +58,9 @@ Things you may want to cover:
 |status|string|null: false|
 ### Association
 - has_many :images
-- belongs_to :user, dependent: :destroy
-- belongs_to :brand, dependent: :destroy
-- belongs_to :category, dependent: :destroy
+- belongs_to :user
+- belongs_to :brand
+- belongs_to :category
 - belongs_to_active_hash :prefecture
 
 # purchasesテーブル
