@@ -56,7 +56,6 @@ Things you may want to cover:
 |brand_id|integer|foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |status|string|null: false|
-|image_id|integer|null: false|
 ### Association
 - has_many :images
 - belongs_to :user, dependent: :destroy
@@ -99,7 +98,6 @@ Things you may want to cover:
 # brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|exhibition_id|integer|null: false, foreign_key: true|
 |name|string|null: false|
 ### Association
 - has_many :exhibitions
@@ -107,7 +105,6 @@ Things you may want to cover:
 # categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|exhibition_id|integer|null: false, foreign_key: true|
 |name|string|null: false|
 ### Association
 - has_many :exhibitions
