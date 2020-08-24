@@ -1,0 +1,31 @@
+%header
+  .header-logo
+    %img{:src => "/images/logo.png"}
+%body
+  .password-content
+    .password-content__title
+      %h2 パスワードをお忘れの方
+    .password-content__form
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field
+          %label{:for => "email"} メールアドレス
+          %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "   ご登録されたメールアドレス", class: "input-text"
+        .form-text
+          %p
+            ご登録されたメールアドレスにパスワード再設定のご案内が送信されます。
+        .actions
+          = f.submit "送信する", class: "btn"
+%footer
+  .single-footer
+    .single-footer__content
+      .links
+        %a.policy(href="") プライバシーポリシー
+        %a.terms(href="") 利用規約
+        %a.transacition(href="") 特定商取引に関する表記
+      .logo
+        %img{:src => "/images/logo-white.png"}
+        .logo__inc
+          %p
+            © Frima, Inc.
