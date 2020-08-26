@@ -1,6 +1,4 @@
-%header.login-header
-  .header-logo
-    %img{:src => "/images/logo.png"}
+= render "devise/shared/header", resource: resource
 %body
   .login-content
     .login-content__sign-in
@@ -23,7 +21,7 @@
         %span.text 
           Apppleでログイン
     .login-content__form
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
         .field
           %label{:for => "email"}
           %br/
@@ -37,15 +35,4 @@
           = f.submit "ログイン", class: "login-btn"
       .form-link
         = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: "link"
-%footer
-  .single-footer
-    .single-footer__content
-      .links
-        %a.policy(href="") プライバシーポリシー
-        %a.terms(href="") 利用規約
-        %a.transacition(href="") 特定商取引に関する表記
-      .logo
-        %img{:src => "/images/logo-white.png"}
-        .logo__inc
-          %p
-            © Frima, Inc.
+= render "devise/shared/footer", resource: resource
