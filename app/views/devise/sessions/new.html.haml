@@ -4,7 +4,7 @@
     .login-content__sign-in
       %p
         アカウントをお持ちでない方はこちら
-      %a(href="/users/sign_up") 新規会員登録
+      = link_to "新規会員登録", new_user_registration_path, class: 'sign-up'
     .login-content__sns-login
       %a.google(href="") 
         %i.fab.fa-google.fa-lg
