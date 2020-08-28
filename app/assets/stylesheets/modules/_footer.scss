@@ -1,0 +1,26 @@
+.single-footer {
+  height: 250px;
+  width: 100%;
+  background-color: #f5f5f5;
+  &__content {
+    .links {
+      padding-top: 40px;
+      text-align: center;
+      a {
+        margin-right: 12px;
+        font-size: 12px;
+        color: #333;
+      }
+    }
+    .logo {
+      padding-top: 30px;
+      text-align: center;
+      img {
+        width: 15%;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}

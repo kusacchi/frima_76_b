@@ -1,0 +1,12 @@
+.single-header {
+  height: 128px;
+  width: 100%;
+  background-color: #f5f5f5;
+  &__logo {
+    text-align: center;
+    line-height: 100px;
+    img {
+      width: 15%;
+    }
+  }
+}
