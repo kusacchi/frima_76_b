@@ -17,16 +17,23 @@
 
     .header__bottom
       %nav.nav
+        
         %ul.listLeft
           %li.listLeft__item
             %a.catBtn{:href => ""} カテゴリー
           %li.listLeft__item
             %a.brBtn{:href => ""} ブランド
         %ul.listRight
-          %li.listRight__item
-            %a.login{:href => ""} ログイン
-          %li.listRight__item
-            %a.reg{:href => ""} 新規会員登録
+          - if user_signed_in?
+            %li.listRight__item
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete
+            %li.listRight__item
+              %a.login{:href => ""} マイページ
+          - else
+            %li.listRight__item
+              %a.login{:href => "/users/sign_in"} ログイン
+            %li.listRight__item
+              %a.reg{:href => "/users/sign_up"} 新規会員登録
 
 
 %main
