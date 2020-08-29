@@ -1,3 +1,4 @@
+@import "reset";
 @import "config/colors";
 @import "items.scss";
 @import "font-awesome-sprockets";
@@ -5,3 +6,6 @@
 @import "modules/header";
 @import "modules/footer";
 @import "new.scss";
+@import "modules/registrations";
+@import "modules/sessions";
+@import "modules/passwords";
