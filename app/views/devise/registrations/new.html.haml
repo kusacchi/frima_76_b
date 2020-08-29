@@ -1,0 +1,45 @@
+%h2 Sign up
+= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :nickname
+    %br/
+    = f.text_field :nickname
+  .field
+    = f.label :myouzi
+    %br/
+    = f.text_field :family_name
+  .field
+    = f.label :namae
+    %br/
+    = f.text_field :first_name
+  .field
+    = f.label :huri
+    %br/
+    = f.text_field :family_name_kana
+  .field
+    = f.label :gana
+    %br/
+    = f.text_field :first_name_kana
+  .field
+    = f.label :birthday
+    %br/
+    = f.date_select :birthday, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .actions
+    = f.submit "Sign up"
+= render "devise/shared/links"
