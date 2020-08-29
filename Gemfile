@@ -76,3 +76,6 @@ gem "haml-rails", "~> 2.0"
 
 gem 'font-awesome-sass', '~> 5.4.1'
 
+gem 'active_hash'
+
+gem 'jp_prefecture'
