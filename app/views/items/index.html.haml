@@ -3,16 +3,15 @@
   .header__inner
     .header__inner__top
       %h1.logo
-        %a{:href => ""}
-          %img{:src => "/images/logo.png"}
-
+        = link_to "" do
+          = image_tag '/images/logo.png'
       .search
         %form.search__form{:method => "GET", }
           %input{:type => "hidden"}/
           %input.search__form__box{:placeholder => "キーワードから探す"}/
           %button{:type => "submit"}
             .submit_icon
-              %img{:src => "/images/icon-search 1.png"}/
+              = image_tag '/images/icon-search 1.png'
           %input{:type => "hidden"}/
 
     .header__bottom
@@ -20,10 +19,11 @@
         
         %ul.listLeft
           %li.listLeft__item
-            %a.catBtn{:href => ""} カテゴリー
+            = link_to "カテゴリー", "#", class: "catBtn"
           %li.listLeft__item
-            %a.brBtn{:href => ""} ブランド
+            = link_to "ブランド", "#", class: "brBtn"
         %ul.listRight
+
           - if user_signed_in?
             %li.listRight__item
               = link_to 'ログアウト', destroy_user_session_path, method: :delete
@@ -36,6 +36,7 @@
               %a.reg{:href => "/users/sign_up"} 新規会員登録
 
 
+
 %main
 
   %section.topMain
@@ -46,21 +47,21 @@
         %br/
         フリマアプリです
       .icon
-        %a.appleIcon{:href => ""}
-          %img{:src => "https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2016-06-01&kind=iossoftware&bubble=ios_apps"}/
-        %a.googleIcon{:href => ""}
-          %img{:src => "https://lh3.googleusercontent.com/qF9r3ZjtgG-qyHdmjecArtKiulz1gmwL_xl9R3_fzk6igSeoN0wYbJSKEX5d_fxJRwYZJpHbqcLB3i9atl-9dOfUl9an7U43TfZ9PtQ=s0"}/
+        = link_to "#", class: "appleIcon" do
+          = image_tag 'https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2016-06-01&kind=iossoftware&bubble=ios_apps'
+        = link_to "#", class: "googleIcon" do
+          = image_tag 'https://lh3.googleusercontent.com/qF9r3ZjtgG-qyHdmjecArtKiulz1gmwL_xl9R3_fzk6igSeoN0wYbJSKEX5d_fxJRwYZJpHbqcLB3i9atl-9dOfUl9an7U43TfZ9PtQ=s0'
 
 
   %section.topIntroduction
     .title
-      FURIMAが選ばれる3つの理由 
+      FURIMAが選ばれる3つの理由
     %ul.lists
       %li.list
         .list__img
           %span.list__img__num 1
-          %img{:src => "/images/pict-reason-01.jpg"}
-        .list__subtitle 
+          = image_tag '/images/pict-reason-01.jpg'
+        .list__subtitle
           %span 3分
           ですぐに出品
         %p.list__text スマホで入力するだけで簡単に出品できる！
@@ -68,8 +69,8 @@
       %li.list
         .list__img
           %span.list__img__num 2
-          %img{:src => "/images/pict-reason-02.jpg"}
-        .list__subtitle 
+          = image_tag '/images/pict-reason-02.jpg'
+        .list__subtitle
           %span シンプル
           で使いやすい
         %p.list__text めんどくさい入力は必要なく、検索も購入もスムーズ！
@@ -77,8 +78,8 @@
       %li.list
         .list__img
           %span.list__img__num 3
-          %img{:src => "/images/pict-reason-03.jpg"}
-        .list__subtitle 
+          = image_tag '/images/pict-reason-03.jpg'
+        .list__subtitle
           手数量
           %span 業界最安
         %p.list__text 最大3%でお得に出品&購入！
@@ -92,69 +93,41 @@
         出品・購入回数も業界最多です！<br>
         ほしかったあの商品に出会えるかもしれません。
         .icon
-          %a.appleIcon{:href => ""}
-            %img{:src => "https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2016-06-01&kind=iossoftware&bubble=ios_apps"}/
-          %a.googleIcon{:href => ""}
-            %img{:src => "https://lh3.googleusercontent.com/qF9r3ZjtgG-qyHdmjecArtKiulz1gmwL_xl9R3_fzk6igSeoN0wYbJSKEX5d_fxJRwYZJpHbqcLB3i9atl-9dOfUl9an7U43TfZ9PtQ=s0"}/
+          = link_to "#", class: "appleIcon" do
+            = image_tag 'https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2016-06-01&kind=iossoftware&bubble=ios_apps'
+          = link_to "#", class: "googleIcon" do
+            = image_tag 'https://lh3.googleusercontent.com/qF9r3ZjtgG-qyHdmjecArtKiulz1gmwL_xl9R3_fzk6igSeoN0wYbJSKEX5d_fxJRwYZJpHbqcLB3i9atl-9dOfUl9an7U43TfZ9PtQ=s0'
 
   %section.topFeature
     %h2.topFeature__title FURIMAの特徴
     .cohesives
       .cohesive
         .cohesive__img
-          %img{:src => "/images/icon-01.png"}
+          = image_tag '/images/icon-01.png'
         %h3.cohesive__subtitle 簡単に売り買いできる
         %p.cohesive__text スマホひとつで、いつでもどこでも簡単<br>に出品・購入が可能！
 
       .cohesive
         .cohesive__img
-          %img{:src => "/images/icon-03.png"}
+          = image_tag '/images/icon-03.png'
         %h3.cohesive__subtitle 売上金は即日振込みに対応
         %p.cohesive__text 午前9時までに振込を依頼いただけれ<br>ば、翌日に指定の口座に入金いたします!
 
       .cohesive
         .cohesive__img
-          %img{:src => "/images/icon-04.png"}
+          = image_tag '/images/icon-04.png'
         %h3.cohesive__subtitle 様々な支払いに対応
         %p.cohesive__text お支払いは、クレジットカードだけでな<br>く、ポイントや売上金など多彩な方法が<br>あります。
 
   %section.pickup
     %h2.pickup__title ピックアップカテゴリー
     .pickup__subtitle
-      %a{:href => ""} 新規投稿商品
+      = link_to "新規投稿商品", "#"
     %ul.productLists
       %li.productList
-        %a{:href => ""}
-          .productList__img 
-            %img{:src => "/images/beef.jpeg"}
-          .productList__content
-            .productList__content__name asesw
-            .productList__content__details
-              .productList__content__details__price 1000円
-              .productList__content__details__favorite
-                %i.fas.fa-star
-                1
-            .productList__content__taxIncluded
-              (税込み)
-              
-      %li.productList
-        %a{:href => ""}
-          .productList__img 
-            %img{:src => "/images/9404ab8667c91941142522f244202afa_t.jpeg"}
-          .productList__content
-            .productList__content__name asesw
-            .productList__content__details
-              .productList__content__details__price 1000円
-              .productList__content__details__favorite
-                %i.fas.fa-star
-                1
-            .productList__content__taxIncluded
-              (税込み)    
-
-      %li.productList
-        %a{:href => ""}
-          .productList__img 
-            %img{:src => "/images/icon-04.png"}
+        = link_to "#" do
+          .productList__img
+            = image_tag '/images/beef.jpeg'
           .productList__content
             .productList__content__name asesw
             .productList__content__details
@@ -166,9 +139,9 @@
               (税込み)
 
       %li.productList
-        %a{:href => ""}
-          .productList__img 
-            %img{:src => "/images/icon-04.png"}
+        = link_to "#" do
+          .productList__img
+            = image_tag '/images/9404ab8667c91941142522f244202afa_t.jpeg'
           .productList__content
             .productList__content__name asesw
             .productList__content__details
@@ -180,9 +153,9 @@
               (税込み)
 
       %li.productList
-        %a{:href => ""}
-          .productList__img 
-            %img{:src => "/images/icon-04.png"}
+        = link_to "#" do
+          .productList__img
+            = image_tag '/images/icon-04.png'
           .productList__content
             .productList__content__name asesw
             .productList__content__details
@@ -191,45 +164,45 @@
                 %i.fas.fa-star
                 1
             .productList__content__taxIncluded
-              (税込み)          
-        
+              (税込み)
+
+      %li.productList
+        = link_to "#" do
+          .productList__img
+            = image_tag '/images/icon-04.png'
+          .productList__content
+            .productList__content__name asesw
+            .productList__content__details
+              .productList__content__details__price 1000円
+              .productList__content__details__favorite
+                %i.fas.fa-star
+                1
+            .productList__content__taxIncluded
+              (税込み)
+
+      %li.productList
+        = link_to "#" do
+          .productList__img
+            = image_tag '/images/icon-04.png'
+          .productList__content
+            .productList__content__name asesw
+            .productList__content__details
+              .productList__content__details__price 1000円
+              .productList__content__details__favorite
+                %i.fas.fa-star
+                1
+            .productList__content__taxIncluded
+              (税込み)
+
   %section.pickup.pickupSecond
     %h2.pickup__title ピックアップブランド
     .pickup__subtitle
-      %a{:href => ""} アーカイバ
+      = link_to "アーカイバ", "#"
     %ul.productLists
       %li.productList
-        %a{:href => ""}
-          .productList__img 
-            %img{:src => "/images/icon-04.png"}
-          .productList__content
-            .productList__content__name asesw
-            .productList__content__details
-              .productList__content__details__price 1000円
-              .productList__content__details__favorite
-                %i.fas.fa-star
-                1
-            .productList__content__taxIncluded
-              (税込み)
-              
-      %li.productList
-        %a{:href => ""}
-          .productList__img 
-            %img{:src => "/images/icon-04.png"}
-          .productList__content
-            .productList__content__name asesw
-            .productList__content__details
-              .productList__content__details__price 1000円
-              .productList__content__details__favorite
-                %i.fas.fa-star
-                1
-            .productList__content__taxIncluded
-              (税込み)    
-
-      %li.productList
-        %a{:href => ""}
-          .productList__img 
-            %img{:src => "/images/icon-04.png"}
+        = link_to "#" do
+          .productList__img
+            = image_tag '/images/icon-04.png'
           .productList__content
             .productList__content__name asesw
             .productList__content__details
@@ -241,9 +214,9 @@
               (税込み)
 
       %li.productList
-        %a{:href => ""}
-          .productList__img 
-            %img{:src => "/images/icon-04.png"}
+        = link_to "#" do
+          .productList__img
+            = image_tag '/images/icon-04.png'
           .productList__content
             .productList__content__name asesw
             .productList__content__details
@@ -255,9 +228,9 @@
               (税込み)
 
       %li.productList
-        %a{:href => ""}
-          .productList__img 
-            %img{:src => "/images/icon-04.png"}
+        = link_to "#" do
+          .productList__img
+            = image_tag '/images/icon-04.png'
           .productList__content
             .productList__content__name asesw
             .productList__content__details
@@ -266,17 +239,45 @@
                 %i.fas.fa-star
                 1
             .productList__content__taxIncluded
-              (税込み)    
+              (税込み)
+
+      %li.productList
+        = link_to "#" do
+          .productList__img
+            = image_tag '/images/icon-04.png'
+          .productList__content
+            .productList__content__name asesw
+            .productList__content__details
+              .productList__content__details__price 1000円
+              .productList__content__details__favorite
+                %i.fas.fa-star
+                1
+            .productList__content__taxIncluded
+              (税込み)
+
+      %li.productList
+        = link_to "#" do
+          .productList__img
+            = image_tag '/images/icon-04.png'
+          .productList__content
+            .productList__content__name asesw
+            .productList__content__details
+              .productList__content__details__price 1000円
+              .productList__content__details__favorite
+                %i.fas.fa-star
+                1
+            .productList__content__taxIncluded
+              (税込み)
 
   %section.promptDl
     .promptDl__content
       .promptDl__content__title だれでもかんたん、人生を変えるフリマアプリ
       .promptDl__content__text 今すぐ無料ダウンロード！
       .icon.promptDl__content__icon
-        %a.appleIcon{:href => ""}
-          %img{:src => "https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2016-06-01&kind=iossoftware&bubble=ios_apps"}/
-        %a.googleIcon{:href => ""}
-          %img{:src => "https://lh3.googleusercontent.com/qF9r3ZjtgG-qyHdmjecArtKiulz1gmwL_xl9R3_fzk6igSeoN0wYbJSKEX5d_fxJRwYZJpHbqcLB3i9atl-9dOfUl9an7U43TfZ9PtQ=s0"}/
+        = link_to "#", class: "appleIcon" do
+          = image_tag 'https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2016-06-01&kind=iossoftware&bubble=ios_apps'
+        = link_to "#", class: "googleIcon" do
+          = image_tag 'https://lh3.googleusercontent.com/qF9r3ZjtgG-qyHdmjecArtKiulz1gmwL_xl9R3_fzk6igSeoN0wYbJSKEX5d_fxJRwYZJpHbqcLB3i9atl-9dOfUl9an7U43TfZ9PtQ=s0'
 
 %footer.footer
   %ul.footer__lists
@@ -285,38 +286,38 @@
       .footer__lists__list__title FURIMAについて
       %ul.footer__lists__list__details
         %li
-          %a{:href => ""} 会社概要（運営会社）
+          = link_to "会社概要（運営会社）", "#"
         %li
-          %a{:href => ""} プライバシーポリシー
+          = link_to "プライバシーポリシー", "#"
         %li
-          %a{:href => ""} FURIMA利用規約
+          = link_to "FURIMA利用規約", "#"
         %li
-          %a{:href => ""} ポイントに関する特約
+          = link_to "ポイントに関する特約", "#"
 
     %li.footer__lists__list
       .footer__lists__list__title FURIMAを見る
       %ul.footer__lists__list__details
         %li
-          %a{:href => ""} カテゴリー一覧
+          = link_to "カテゴリー一覧", "#"
         %li
-          %a{:href => ""} ブランド一覧
+          = link_to "ブランド一覧", "#"
 
     %li.footer__lists__list
       .footer__lists__list__title ヘルプ＆ガイド
       %ul.footer__lists__list__details
         %li
-          %a{:href => ""} FURIMAガイド
+          = link_to "FURIMAガイド", "#"
         %li
-          %a{:href => ""} FURIMAロゴ利用ガイドライン
+          = link_to "FURIMAロゴ利用ガイドライン", "#"
         %li
-          %a{:href => ""} お知らせ
+          = link_to "お知らせ", "#"
 
   .footer__logo
-    %a{:href => ""}
-      %img{:src => "/images/logo-white.png"}
+    = link_to "#" do
+      = image_tag '/images/logo-white.png'
   %p © FURIMA
 
-%a{:href => ""}
+= link_to new_exhibition_path do
   .exhibitionBtn
     %span.exhibitionBtn__text 出品する
-    %img.exhibitionBtn__icon{:src => "/images/icon_camera.png"}
+    = image_tag '/images/icon_camera.png', class: 'exhibitionBtn__icon'
