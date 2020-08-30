@@ -1,5 +1,4 @@
 body {
-
   .signup-form {
     height: 1090px;
     width: 100%;
@@ -16,8 +15,8 @@ body {
       margin: 0 auto;
       text-align: center;
       h2 {
-       font-weight: bold;
-       font-size: 22px;
+        font-weight: bold;
+        font-size: 22px;
       }
     }
     &__form {
@@ -39,7 +38,7 @@ body {
           span {
             margin-left: 8px;
             padding: 2px 4px;
-            background: #3CCACE;
+            background: #3ccace;
             color: #ffffff;
             font-size: 12px;
             border-radius: 2px;
@@ -69,21 +68,21 @@ body {
           }
           .input-date {
             margin-top: 8px;
-            .year {
+            #user_birth_date_1i {
               margin-right: 5px;
               height: 48px;
               width: 76px;
               border: 1px solid #ccc;
               border-radius: 4px;
             }
-            .month {
+            #user_birth_date_2i {
               margin: 0 5px;
               height: 48px;
               width: 76px;
               border: 1px solid #ccc;
               border-radius: 4px;
             }
-            .day {
+            #user_birth_date_3i {
               margin-left: 5px;
               height: 48px;
               width: 76px;
@@ -123,12 +122,11 @@ body {
           width: 343px;
           height: 50px;
           color: #fff;
-          background: #3CCACE;
-          border: 1px solid #3CCACE;
+          background: #3ccace;
+          border: 1px solid #3ccace;
           border-radius: 4px;
         }
       }
     }
   }
 }
-
