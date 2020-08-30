@@ -7,7 +7,7 @@ class User < ApplicationRecord
         VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
         VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
         VALID_NAME_REGEX = /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
-        VALID_KANA_REGEX = /\A[ぁ-んー－]+\z/
+        VALID_KANA_REGEX = /\A[ァ-ヶー－]+\z/
         
   has_many :exhibitions, dependent: :destroy
   has_one :card, dependent: :destroy
