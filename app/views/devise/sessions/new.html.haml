@@ -1,18 +1,39 @@
-%h2 Log in
-= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+= render "devise/shared/header", resource: resource
+%body
+  .login-content
+    .login-content__sign-in
+      %p
+        アカウントをお持ちでない方はこちら
+      = link_to "新規会員登録", new_user_registration_path, class: 'sign-up'
+    .login-content__sns-login
+      = link_to "#", class: "google" do
+        %i.fab.fa-google.fa-lg
+        %span.text
+          Googleでログイン 
+      %br/
+      = link_to "#", class: "facebook" do 
+        %i.fab.fa-facebook-square.fa-lg
+        %span.text
+          Facebookでログイン
+      %br/
+      = link_to "#", class: "apple" do
+        %i.fab.fa-apple.fa-lg
+        %span.text 
+          Apppleでログイン
+    .login-content__form
+      = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
+        .field
+          %label{:for => "email"}
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "   メールアドレス", class: "input-text"
+        .field
+          %label{:for => "password"}
+          %br/
+          = f.password_field :password, autocomplete: "current-password", :placeholder => "   パスワード", class: "input-text"
+
+        .actions
+          = f.submit "ログイン", class: "login-btn"
+      .form-link
+        = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: "link"
+= render "devise/shared/footer", resource: resource
 

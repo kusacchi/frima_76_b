@@ -1,4 +1,11 @@
+@import "reset";
 @import "config/colors";
 @import "items.scss";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "modules/header";
+@import "modules/footer";
+@import "new.scss";
+@import "modules/registrations";
+@import "modules/sessions";
+@import "modules/passwords";
