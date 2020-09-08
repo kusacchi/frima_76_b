@@ -1,0 +1,56 @@
+= render 'exhibitions/shared/header'
+
+.item
+  .item__container
+    .item__container__title 購入内容の確認
+    .item__container__content.section
+      .item__container__content__outline
+        .item__container__content__outline__img
+          = image_tag '/images/icon-04.png', height: '80', width: '80', class: "item__container__content__outline__img__figure"
+        .item__container__content__outline__details
+          .item__container__content__outline__details__name 
+            %p.item__container__content__outline__details__name__text UNION JORDAN ユニオンジョーダン　Ｔシャツ
+            %p.item__container__content__outline__details__name__price
+              %span.item__container__content__outline__details__name__price__text 送料込み (税込)
+              %span.item__container__content__outline__details__name__price__pay ¥14,200
+    .item__container__pay.section
+      .item__container__pay__box
+        %span 支払い金額
+        %span.item__container__pay__box__price ¥14,200
+    .item__container__PayMethod.section
+      %h3.item__container__PayMethod__title 支払い方法
+      = link_to "", class: "item__container__PayMethod__registration" do
+        %i.fas.fa-plus-circle{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 24 24", :width => "16"}
+        %span.item__container__PayMethod__registration__text 登録してください
+    .item__container__shipping.section
+      .item__container__shipping__box
+        .item__container__shipping__box__head
+          %h3.item__container__shipping__box__head__title 配送先
+          = link_to "", class: "item__container__shipping__box__head__change" do 
+            変更する
+            %i.fas.fa-chevron-right{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 24 24", :width => "16",}
+        .item__container__shipping__box__address
+          %p 〒456-2224
+          %p 大阪府 大阪市北区梅田 4-4-4
+          %p 佐藤太郎
+    .item__container__purchas.section
+      .item__container__purchas__box
+        %p.item__container__purchas__box__text 支払い方法を完了してください
+        = button_to "", class: "item__container__purchas__box__btn" do
+          購入する
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+= render 'exhibitions/shared/footer'
