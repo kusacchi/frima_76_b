@@ -1,0 +1,126 @@
+label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+span {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  background: $lightBlue;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  font-weight: 600;
+}
+
+select {
+  appearance: none;
+  padding: 7px 30px 7px 10px;
+  line-height: 1.1em;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-size: 12px 10px;
+  background-position: right 10px center;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+p {
+  margin: 0 8px;
+}
+
+input {
+  width: 100%;
+  height: 48px;
+  margin: 0 auto;
+  display: block;
+  padding: 0 10px;
+}
+
+.credit_cards-new {
+  width: 100%;
+  height: auto;
+  background: #f5f5f5;
+  padding-top: 27px 0;
+
+  &__wrapper {
+    width: 700px;
+    height: auto;
+    margin: 0 auto;
+    background-color: white;
+
+    &__title {
+      padding: 32px 16px;
+      font-size: 22px;
+      font-weight: 600;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    &__form {
+      font-size: 16px;
+      width: 400px;
+      height: auto;
+      margin: 0 auto;
+
+      &__cardnumber {
+        margin-top: 27px;
+      }
+
+      &__logos {
+        margin: 10px 0 20px 0;
+        display: flex;
+
+        img {
+          width: 75px;
+          height: 70px;
+        }
+      }
+
+      &__expiration-form {
+        display: flex;
+
+        &__date {
+          align-items: baseline;
+          display: flex;
+          height: 48px;
+          width: 343px;
+          margin-right: auto;
+          margin-left: auto;
+          margin-bottom: 27px;
+        }
+      }
+
+      &__cvc {
+        margin-bottom: 27px;
+      }
+
+      &__submit {
+        padding: 40px 0;
+        border-top: 1px solid #eee;
+        font-size: 14px;
+
+        &__blue {
+          font-weight: bold;
+          background: $lightBlue;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 18px;
+          border: 1px solid transparent;
+          transition: all ease-out 0.3s;
+          cursor: pointer;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
