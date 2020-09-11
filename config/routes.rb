@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   #   registrations: 'users/registrations',
   #   sessions:      'users/sessions'
   # }
+  
+  get "exhibitions/confirm"
 
   devise_scope :users do
     get "sign_in", :to => "users/sessions#new"
