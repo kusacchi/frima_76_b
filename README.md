@@ -40,7 +40,7 @@ Things you may want to cover:
 |password|string|null: false|
 ### Association
 - has_many :exhibitions, dependent: :destroy
-- has_many :cards, dependent: :destroy
+- has_one :cards, dependent: :destroy
 - has_many :purchases, dependent: :destroy
 
 ## exhibitionsテーブル

@@ -1,0 +1,65 @@
+= render 'devise/shared/header'
+
+.credit_cards-new
+  .credit_cards-new__wrapper
+    .credit_cards-new__wrapper__title
+      クレジットカード情報入力
+    .credit_cards-new__wrapper__form
+      .credit_cards-new__wrapper__form__cardnumber
+        %label
+          カード番号
+        %span
+          必須
+        %input{type: "text", name: "number", id: "card_id", placeholder: "半角数字のみ", maxlength: "16" }
+      .credit_cards-new__wrapper__form__logos
+        =image_tag '/images/card_jcb_b.gif'
+        =image_tag '/images/card_master_b.gif'
+        =image_tag '/images/card_visa_b.gif'
+      .credit_cards-new__wrapper__form__expiration-desc
+        %label
+          有効期限
+        %span
+          必須
+      .credit_cards-new__wrapper__form__expiration-form
+        .credit_cards-new__wrapper__form__expiration-form__date
+          %select
+            %option ---
+            %option{value: 1} 01
+            %option{value: 2} 02
+            %option{value: 3} 03
+            %option{value: 4} 04
+            %option{value: 5} 05
+            %option{value: 6} 06
+            %option{value: 7} 07
+            %option{value: 8} 08
+            %option{value: 9} 09
+            %option{value: 10} 10
+            %option{value: 11} 11
+            %option{value: 12} 12
+          %p 月
+        .credit_cards-new__wrapper__form__expiration-form__date
+          %select
+            %option ---
+            %option{value: 2020} 20
+            %option{value: 2021} 21
+            %option{value: 2022} 22
+            %option{value: 2023} 23
+            %option{value: 2024} 24
+            %option{value: 2025} 25
+            %option{value: 2026} 26
+            %option{value: 2027} 27
+            %option{value: 2028} 28
+            %option{value: 2029} 29
+            %option{value: 2030} 30
+            %option{value: 2031} 31
+          %p 年
+      .credit_cards-new__wrapper__form__cvc
+        %label
+          セキュリティコード
+        %span
+          必須
+        %input{type: "text", placeholder: "カード背面3桁または4桁の番号", maxlength: "4" }
+      .credit_cards-new__wrapper__form__submit
+        %input{type: "submit", class:"credit_cards-new__wrapper__form__submit__blue", name: "commit", value: "登録する"}
+
+= render 'devise/shared/footer'
