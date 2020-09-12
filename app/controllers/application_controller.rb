@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
     added_attrs = [ :nickname, :email, :password, :birthday, :family_name, :first_name ,:family_name_kana ,:first_name_kana, :image, :introdaction]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
   end
+
+  def after_sign_in_path_for(resource)
+    root_path
+  end
 end
