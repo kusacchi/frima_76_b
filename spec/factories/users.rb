@@ -3,9 +3,9 @@ FactoryBot.define do
     password = Faker::Internet.password(min_length: 7)
     nickname {Faker::Name.last_name}
     email {"hiro@example.com"}
-    password {"password"}
-    password_confirmation {"password"}
-    birthday {"0306"}
+    password {"asdf1234"}
+    password_confirmation {"asdf1234"}
+    birthday {"1989-01-01"}
     family_name {"上杉"}
     first_name {"謙信"}
     family_name_kana {"ウエスギ"}

@@ -43,7 +43,7 @@ RSpec.describe User, type: :model do
 
 
     it "birthdayが空だとNG" do
-      @user.birthday
+      @user.birthday = ""
       expect(@user.valid?).to eq(false)
     end
 
