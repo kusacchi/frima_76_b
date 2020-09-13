@@ -1,9 +1,19 @@
-label {
+.credit_cards-new {
+  width: 100%;
+  height: auto;
+  background: #f5f5f5;
+  padding-top: 27px 0;
+
+  label {
   font-weight: 600;
   font-size: 14px;
-}
+  }
 
-span {
+  p {
+  margin: 0 8px;
+  }
+
+  .form-require {
   box-sizing: border-box;
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   background: $lightBlue;
@@ -14,9 +24,9 @@ span {
   font-size: 12px;
   vertical-align: top;
   font-weight: 600;
-}
+  }
 
-select {
+  .credit_cards-new-select {
   appearance: none;
   padding: 7px 30px 7px 10px;
   line-height: 1.1em;
@@ -30,25 +40,15 @@ select {
   width: 100%;
   margin-bottom: 10px;
   cursor: pointer;
-}
+  }
 
-p {
-  margin: 0 8px;
-}
-
-input {
+  .credit_cards-new-form {
   width: 100%;
   height: 48px;
   margin: 0 auto;
   display: block;
   padding: 0 10px;
-}
-
-.credit_cards-new {
-  width: 100%;
-  height: auto;
-  background: #f5f5f5;
-  padding-top: 27px 0;
+  }
 
   &__wrapper {
     width: 700px;

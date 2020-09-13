@@ -8,9 +8,9 @@
       .credit_cards-new__wrapper__form__cardnumber
         %label
           カード番号
-        %span
+        %span.form-require
           必須
-        %input{type: "text", name: "number", id: "card_id", placeholder: "半角数字のみ", maxlength: "16" }
+        %input{type: "text", class: "credit_cards-new-form", name: "number", id: "card_id", placeholder: "半角数字のみ", maxlength: "16" }
       .credit_cards-new__wrapper__form__logos
         =image_tag '/images/card_jcb_b.gif'
         =image_tag '/images/card_master_b.gif'
@@ -18,11 +18,11 @@
       .credit_cards-new__wrapper__form__expiration-desc
         %label
           有効期限
-        %span
+        %span.form-require
           必須
       .credit_cards-new__wrapper__form__expiration-form
         .credit_cards-new__wrapper__form__expiration-form__date
-          %select
+          %select.credit_cards-new-select
             %option ---
             %option{value: 1} 01
             %option{value: 2} 02
@@ -38,7 +38,7 @@
             %option{value: 12} 12
           %p 月
         .credit_cards-new__wrapper__form__expiration-form__date
-          %select
+          %select.credit_cards-new-select
             %option ---
             %option{value: 2020} 20
             %option{value: 2021} 21
@@ -56,10 +56,10 @@
       .credit_cards-new__wrapper__form__cvc
         %label
           セキュリティコード
-        %span
+        %span.form-require
           必須
-        %input{type: "text", placeholder: "カード背面3桁または4桁の番号", maxlength: "4" }
+        %input{type: "text", class: "credit_cards-new-form", placeholder: "カード背面3桁または4桁の番号", maxlength: "4" }
       .credit_cards-new__wrapper__form__submit
-        %input{type: "submit", class:"credit_cards-new__wrapper__form__submit__blue", name: "commit", value: "登録する"}
+        %input{type: "submit", class: "credit_cards-new__wrapper__form__submit__blue", name: "commit", value: "登録する"}
 
 = render 'devise/shared/footer'
