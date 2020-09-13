@@ -19,4 +19,7 @@ class ExhibitionsController < ApplicationController
     params.require(:exhibition).permit(:name, :explanatory, :cost, :prefecture_code, :day, :price, :status, :category_id,:brand_id, images_attributes: {image: []}).merge(user_id: current_user.id)
   end
 
+  def confirm
+  end
+
 end

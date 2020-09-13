@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_09_06_030407) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,24 +47,47 @@ ActiveRecord::Schema.define(version: 2020_09_06_030407) do
     t.integer "exhibition_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+=======
+ActiveRecord::Schema.define(version: 2020_09_06_093448) do
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id",         null: false, foreign_key: true
+    t.string "customer_id",      null: false
+    t.string "card_id",          null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+ActiveRecord::Schema.define(version: 2020_09_03_114059) do
+
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "city",             null: false
+    t.string "address",          null: false
+    t.string "post_code",        null: false
+    t.integer "prefecture_code", null: false, foreign_key: true
+    t.string "building_name"
+    t.string "phone_number"
+    t.integer "user_id"
+    t.timestamps
+
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "family_name", null: false
-    t.string "first_name", null: false
-    t.string "family_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "email", default: "", null: false
-    t.date "birthday", null: false
+    t.string "family_name",              null: false
+    t.string "first_name",               null: false
+    t.string "family_name_kana",         null: false
+    t.string "first_name_kana",          null: false
+    t.string "email",                    default: "", null: false
+    t.date "birthday",                   null: false
     t.string "image"
     t.text "introdaction"
-    t.string "nickname", null: false
-    t.string "password", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "nickname",                 null: false
+    t.string "password",                 default: "", null: false
+    t.string "encrypted_password",       default: "", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.datetime "remember_created_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"],                   name: "index_users_on_email", unique: true
   end
 
 end

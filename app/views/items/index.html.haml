@@ -16,7 +16,7 @@
 
     .header__bottom
       %nav.nav
-        
+
         %ul.listLeft
           %li.listLeft__item
             = link_to "カテゴリー", "#", class: "catBtn"
@@ -28,7 +28,7 @@
             %li.listRight__item
               = link_to 'ログアウト', destroy_user_session_path, method: :delete
             %li.listRight__item
-              = link_to "マイページ", "#", class:"mypage"
+              = link_to "マイページ", user_path(current_user.id)
           - else
             %li.listRight__item
               = link_to "ログイン", new_user_session_path, class: "login"
