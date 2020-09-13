@@ -10,14 +10,16 @@ class Exhibition < ApplicationRecord
   validates_associated :images
   validates_associated :category
 
-  validates :images,          presence: true
-  validates :name,            presence: true
-  validates :explanatory,     presence: true
-  validates :cost,            presence: true
-  validates :prefecture_code, presence: true
-  validates :day ,            presence: true
-  validates :price,           presence: true ,numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
-  validates :user_id,         presence: true
-  validates :category_id,     presence: true
-  validates :status,          presence: true
+  with_options presence: true do
+    validates :images
+    validates :name
+    validates :explanatory
+    validates :cost
+    validates :prefecture_code
+    validates :day
+    validates :price,      numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+    validates :user_id
+    validates :category_id
+    validates :status
+  end
 end
