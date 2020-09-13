@@ -85,6 +85,16 @@ gem 'jp_prefecture'
 
 gem 'devise'
 
+gem 'rails-i18n'
+
+gem 'active_hash'
+
+gem 'carrierwave'
+
+gem 'rmagick'
+
+gem 'jquery-rails'
+
 gem 'payjp'
 
 gem 'rails-i18n'
