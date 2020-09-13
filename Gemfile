@@ -89,8 +89,6 @@ gem 'rails-i18n'
 
 gem 'active_hash'
 
-gem 'carrierwave'
-
 gem 'rmagick'
 
 gem 'jquery-rails'
@@ -98,3 +96,7 @@ gem 'jquery-rails'
 gem 'payjp'
 
 gem 'rails-i18n'
+
+# for image uploader with AWS S3
+gem 'carrierwave'
+gem 'fog'
