@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :exhibitions, only: [:new, :create] do
   end
 
-  post "exhibitions/new"
 
   devise_for :users
 
