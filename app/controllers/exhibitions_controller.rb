@@ -1,5 +1,6 @@
 class ExhibitionsController < ApplicationController
 
+
   def new
     @exhibition = Exhibition.new
     @exhibition.images.build
