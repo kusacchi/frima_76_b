@@ -124,75 +124,23 @@
     .pickup__subtitle
       = link_to "新規投稿商品", "#"
     %ul.productLists
-      %li.productList
-        = link_to "#" do
-          .productList__img
-            = image_tag '/images/beef.jpeg'
-          .productList__content
-            .productList__content__name asesw
-            .productList__content__details
-              .productList__content__details__price 1000円
-              .productList__content__details__favorite
-                %i.fas.fa-star
-                1
-            .productList__content__taxIncluded
-              (税込み)
-
-      %li.productList
-        = link_to "#" do
-          .productList__img
-            = image_tag '/images/9404ab8667c91941142522f244202afa_t.jpeg'
-          .productList__content
-            .productList__content__name asesw
-            .productList__content__details
-              .productList__content__details__price 1000円
-              .productList__content__details__favorite
-                %i.fas.fa-star
-                1
-            .productList__content__taxIncluded
-              (税込み)
-
-      %li.productList
-        = link_to "#" do
-          .productList__img
-            = image_tag '/images/icon-04.png'
-          .productList__content
-            .productList__content__name asesw
-            .productList__content__details
-              .productList__content__details__price 1000円
-              .productList__content__details__favorite
-                %i.fas.fa-star
-                1
-            .productList__content__taxIncluded
-              (税込み)
-
-      %li.productList
-        = link_to "#" do
-          .productList__img
-            = image_tag '/images/icon-04.png'
-          .productList__content
-            .productList__content__name asesw
-            .productList__content__details
-              .productList__content__details__price 1000円
-              .productList__content__details__favorite
-                %i.fas.fa-star
-                1
-            .productList__content__taxIncluded
-              (税込み)
-
-      %li.productList
-        = link_to "#" do
-          .productList__img
-            = image_tag '/images/icon-04.png'
-          .productList__content
-            .productList__content__name asesw
-            .productList__content__details
-              .productList__content__details__price 1000円
-              .productList__content__details__favorite
-                %i.fas.fa-star
-                1
-            .productList__content__taxIncluded
-              (税込み)
+      - @exhibitions.each do |exhibition|
+        %li.productList
+          = link_to "#" do
+            .productList__img
+              = image_tag exhibition.images.first.image.url
+            .productList__content
+              .productList__content__name
+                = exhibition.name
+              .productList__content__details
+                .productList__content__details__price
+                  = exhibition.price
+                  円
+                .productList__content__details__favorite
+                  %i.fas.fa-star
+                  1
+              .productList__content__taxIncluded
+                (税込み)
 
   %section.pickup.pickupSecond
     %h2.pickup__title ピックアップブランド
