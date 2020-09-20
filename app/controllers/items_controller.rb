@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
   def index
-    @exhibitions = Exhibition.all.limit(5).order("created_at DESC")
+    @exhibitions = Exhibition.order("created_at DESC").limit(5)
   end
 end
