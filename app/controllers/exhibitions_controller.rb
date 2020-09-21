@@ -14,12 +14,25 @@ class ExhibitionsController < ApplicationController
     end
   end
 
+  def show
+    @exhibition = Exhibition.find(params[:id])
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
   private
   def exhibition_params
-    params.require(:exhibition).permit(:name, :explanatory, :cost, :prefecture_code, :day, :price, :status, :category_id,:brand_id, images_attributes: {image: []}).merge(user_id: current_user.id)
+    params.require(:exhibition).permit(:name, :explanatory, :cost, :prefecture_code, :day, :price, :status, :category_id,:brand_id, images_attributes: [:image, :id],).merge(user_id: current_user.id)
   end
 
   def confirm
+    @exhibition = Exhibition.find(params[:id])
   end
 
 end

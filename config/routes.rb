@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :exhibitions, only: [:new, :create] do
+  resources :exhibitions, only: [:new, :create, :show, :edit, :update] do
   end
 
 
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   #   registrations: 'users/registrations',
   #   sessions:      'users/sessions'
   # }
-  
+
   get "exhibitions/confirm"
 
   devise_scope :users do
