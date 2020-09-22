@@ -1,6 +1,7 @@
 @import "reset";
 @import "config/colors";
 @import "items.scss";
+@import "categories.scss";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "modules/header";
@@ -13,4 +14,4 @@
 @import "mypages/cards/new.scss";
 @import "exhibitions/new.scss";
 @import "exhibitions/show.scss";
-@import "exhibitions/confilm.scss";
+@import "exhibitions/confirm.scss";

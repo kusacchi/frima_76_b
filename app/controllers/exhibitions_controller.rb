@@ -5,6 +5,7 @@ class ExhibitionsController < ApplicationController
   def new
     @exhibition = Exhibition.new
     @exhibition.images.build
+    @category_parent_array = Category.where(ancestry: nil)
   end
 
   def create
@@ -14,6 +15,16 @@ class ExhibitionsController < ApplicationController
     else
       redirect_to new_exhibition_path
     end
+  end
+
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find(params[:parent_id]).children
+  end
+  
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find(params[:child_id]).children
   end
 
   def show
