@@ -5,7 +5,6 @@ class ExhibitionsController < ApplicationController
   def new
     @exhibition = Exhibition.new
     @exhibition.images.build
-    @category_parent_array = ["---"]
     @category_parent_array = Category.where(ancestry: nil)
   end
 
@@ -27,7 +26,7 @@ class ExhibitionsController < ApplicationController
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find(params[:child_id]).children
   end
-  
+
   def show
   end
 
