@@ -1,5 +1,7 @@
 class ExhibitionsController < ApplicationController
 
+  before_action :set_exhibition, only: [:edit, :show, :confirm]
+
   def new
     @exhibition = Exhibition.new
     @exhibition.images.build
@@ -14,12 +16,25 @@ class ExhibitionsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def confirm
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
   private
   def exhibition_params
     params.require(:exhibition).permit(:name, :explanatory, :cost, :prefecture_code, :day, :price, :status, :category_id,:brand_id, images_attributes: [:image, :id],).merge(user_id: current_user.id)
   end
 
-  def confirm
+  def set_exhibition
+    @exhibition = Exhibition.find(params[:id])
   end
 
 end
