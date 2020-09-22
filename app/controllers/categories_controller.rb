@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   def index
     
   end
+  
   def parent
     #親要素の子要素代入
     children = @category.children
