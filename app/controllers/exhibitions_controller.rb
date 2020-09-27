@@ -1,6 +1,6 @@
 class ExhibitionsController < ApplicationController
 
-  before_action :set_exhibition, only: [:edit, :show, :confirm]
+  before_action :set_exhibition, only: [:edit, :show, :confirm, :update]
 
   def new
     @exhibition = Exhibition.new
@@ -34,14 +34,43 @@ class ExhibitionsController < ApplicationController
   end
 
   def edit
+    # grandchild = @exhibition.category
+    # child = grandchild.parent
+    # # if @category_id == 46 or @category_id == 74 or @category_id == 134 or @category_id == 142 or @category_id == 147 or @category_id == 150 or @category_id == 158
+    # # else
+    # #  @parent_array = []
+    # #  @parent_array << @item.category.parent.parent.name
+    # #  @parent_array << @item.category.parent.parent.id
+    # # end
+    #  @category_children_array = Category.where(ancestry: child.ancestry)
+    #  @child_array = []
+    #  @child_array << child.name
+    #  @child_array << child.id
+
+    #  @category_grandchildren_array = Category.where(ancestry: grandchild.ancestry)
+    #  @grandchild_array = []
+    #  @grandchild_array << grandchild.name
+    #  @grandchild_array << grandchild.id
   end
 
   def update
+    if @exhibition.update(exhibition_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
   def exhibition_params
     params.require(:exhibition).permit(:name, :explanatory, :cost, :prefecture_code, :day, :price, :status, :category_id,:brand_id, images_attributes: [:image, :id],).merge(user_id: current_user.id)
+  end
+
+  def ensure_current_user
+    exhibition = Exhibition.find(params[:id])
+    if exhibition.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 
   def set_exhibition
