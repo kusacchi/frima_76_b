@@ -13,7 +13,7 @@ class ExhibitionsController < ApplicationController
     @exhibition = Exhibition.new(exhibition_params)
     if params[:img] != nil
       img = MiniMagick::Image.read(params[:img])
-      img.resize_to_limit "650x387"#resizeをresize_to_fillに変更
+      img.resize_to_limit "650x387"
       img.write "public/uploads/image"
     end
 
@@ -38,6 +38,7 @@ class ExhibitionsController < ApplicationController
     @exhibition = Exhibition.find(params[:id])
     @parents = Category.where(ancestry:nil)
   end
+
 
   def confirm
   end
