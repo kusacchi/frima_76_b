@@ -39,6 +39,13 @@ class ExhibitionsController < ApplicationController
     @parents = Category.where(ancestry:nil)
   end
 
+  def destroy
+    @exhibition = Exhibition.find(params[:id])
+    if @exhibition.user_id == current_user.id
+      @exhibition.destroy 
+      redirect_to root_path, notice: '商品が削除されました'
+    end
+  end
 
   def confirm
   end
