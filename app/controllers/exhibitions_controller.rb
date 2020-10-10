@@ -1,6 +1,6 @@
 class ExhibitionsController < ApplicationController
 
-  before_action :set_exhibition, only: [:edit, :show, :confirm]
+  before_action :set_exhibition, only: [:edit, :show, :confirm, :update]
 
   def new
     @exhibition = Exhibition.new
@@ -18,7 +18,7 @@ class ExhibitionsController < ApplicationController
     end
 
     if @exhibition.save
-      redirect_to root_path
+      redirect_to exhibition_path(@exhibition)
     else
       redirect_to new_exhibition_path
     end
@@ -44,14 +44,29 @@ class ExhibitionsController < ApplicationController
   end
 
   def edit
+    @exhibition.images.build
   end
 
   def update
+    if @exhibition.update(exhibition_params)
+      redirect_to exhibition_path
+    else
+      render :edit
+    end
   end
 
   private
   def exhibition_params
-    params.require(:exhibition).permit(:name, :explanatory, :cost, :prefecture_code, :day, :price, :status, :category_id, images_attributes: [:image, :id],brand_attributes: [:id, :name]).merge(user_id: current_user.id)
+
+    params.require(:exhibition).permit(:name, :explanatory, :cost, :prefecture_code, :day, :price, :status, :category_id,:brand_id, images_attributes: [:image, :id, :_destroy]).merge(user_id: current_user.id)
+  end
+
+  def ensure_current_user
+    exhibition = Exhibition.find(params[:id])
+    if exhibition.user_id != current_user.id
+      redirect_to root_path
+    end
+
   end
 
   def set_exhibition
