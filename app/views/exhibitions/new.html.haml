@@ -16,29 +16,25 @@
               %p.sell__main__content__file__up__head__explanation
                 最大5枚までアップロードできます
             .sell__main__content__file__up__box
-              = f.fields_for :images do |i|
-                = i.label :image, "aaaaa", class: "sell__main__content__file__up__box__file" do
-                  = i.file_field :image, type: 'file', value:"", class: "sell__main__content__file__up__box__file__image", style: "display: none;"
+              .up-image__group
+                .previews
+                  - if @exhibition.persisted?
+                    - @exhibition.images.each.with_index(1) do |img, i|
+                      - next if i >= 6
+                      - next unless img.persisted?
+                      .preview.preview_saved{{data:{name: i}},{data:{index: i}}}
+                        .img_box
+                          = image_tag img.image.url, data: {index: i}, class: "preview_image ", width: "120", height: "70"
+                        .preview_btn
+                          削除
+                .images
+                = f.fields_for :images, class: "images_fields" do |i| 
+                  .up-image__group__dropbox{{id: "image_num_#{i.index+1}"},{data: {index: i.index+1}}}
+                    = i.file_field :image, class: "exhibition_imgs__default images__hidden", id: "up_img_last", type: 'file', accept: "image/*"
+                    = i.check_box :_destroy, data:{index: i.index+1}, class: 'hidden-destroy images__hidden' if i.object.persisted?
 
-              = f.fields_for :images do |i|
-                = i.label :image, class: "sell__main__content__file__up__box__file" do
-                  = i.file_field :image, type: 'file', value:"", class: "sell__main__content__file__up__box__file__image", style: "display: none;"
-
-              = f.fields_for :images do |i|
-                = i.label :image, class: "sell__main__content__file__up__box__file" do
-                  = i.file_field :image, type: 'file', value:"", class: "sell__main__content__file__up__box__file__image", style: "display: none;"
-
-              = f.fields_for :images do |i|
-                = i.label :image, class: "sell__main__content__file__up__box__file" do
-                  = i.file_field :image, type: 'file', value:"", class: "sell__main__content__file__up__box__file__image", style: "display: none;"
-
-              = f.fields_for :images do |i|
-                = i.label :image, class: "sell__main__content__file__up__box__file" do
-                  = i.file_field :image, type: 'file', value:"", class: "sell__main__content__file__up__box__file__image", style: "display: none;"
-
-                %pre.sell__main__content__file__up__box__inner
         .sell__main__content__form
-          %label
+          %label 
             商品
             %span.form-require
               必須
@@ -131,7 +127,7 @@
               = link_to "", target: "_blank" do
                 加盟店規約
               に同意したことになります。
-            = f.submit "出品する", class: "sell__main__content__button__red"
+            = f.submit "編集する", class: "sell__main__content__button__red"
 
   %main.sell__footer
 

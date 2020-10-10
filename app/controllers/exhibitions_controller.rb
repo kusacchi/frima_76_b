@@ -11,7 +11,7 @@ class ExhibitionsController < ApplicationController
   def create
     @exhibition = Exhibition.new(exhibition_params)
     if @exhibition.save
-      redirect_to root_path
+      redirect_to exhibition_path(@exhibition)
     else
       redirect_to new_exhibition_path
     end
@@ -34,6 +34,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def edit
+    @exhibition.images.build
     # grandchild = @exhibition.category
     # child = grandchild.parent
     # # if @category_id == 46 or @category_id == 74 or @category_id == 134 or @category_id == 142 or @category_id == 147 or @category_id == 150 or @category_id == 158
@@ -55,7 +56,7 @@ class ExhibitionsController < ApplicationController
 
   def update
     if @exhibition.update(exhibition_params)
-      redirect_to root_path
+      redirect_to exhibition_path
     else
       render :edit
     end
@@ -63,7 +64,7 @@ class ExhibitionsController < ApplicationController
 
   private
   def exhibition_params
-    params.require(:exhibition).permit(:name, :explanatory, :cost, :prefecture_code, :day, :price, :status, :category_id,:brand_id, images_attributes: [:image, :id],).merge(user_id: current_user.id)
+    params.require(:exhibition).permit(:name, :explanatory, :cost, :prefecture_code, :day, :price, :status, :category_id,:brand_id, images_attributes: [:image, :id, :_destroy]).merge(user_id: current_user.id)
   end
 
   def ensure_current_user

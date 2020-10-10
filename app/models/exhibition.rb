@@ -5,8 +5,11 @@ class Exhibition < ApplicationRecord
   belongs_to :category, optional: true
   belongs_to_active_hash :place
   has_many :images, dependent: :destroy, inverse_of: :exhibition
-  accepts_nested_attributes_for :images
-  
+  accepts_nested_attributes_for :images, allow_destroy: true
+  # accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :reject_images
+  # def reject_images(images)
+  #   images.image.blank?
+  # end
   validates_associated :images
   validates_associated :category
 
