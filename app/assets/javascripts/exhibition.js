@@ -1,5 +1,4 @@
 $(function () {
-  console.log("AAAA");
   let nextInput = (num) => {
     let html = `<div class="up-image__group__dropbox" data-index="${num}", id="image_num_${num}">
   <input class="exhibition_imgs__default" 
