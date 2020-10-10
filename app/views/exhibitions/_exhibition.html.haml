@@ -1,5 +1,5 @@
 %li.productList
-  = link_to "#" do
+  = link_to exhibition_path(exhibition.id) do
     .productList__img
       = image_tag exhibition.images.first.image.url
     .productList__content

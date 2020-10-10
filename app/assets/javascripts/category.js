@@ -6,9 +6,10 @@ $(function () {
       return html;
     }
     // 子カテゴリーの表示作成
-    function appendChidrenBox(insertHTML) {
-      var childSelectHtml = "";
-      childSelectHtml = `<select class="exhibitionPage__main__contents__detail__category__choose--select" id="child_category" name="item[category_id]">
+    function appendChidrenBox(insertHTML){
+      var childSelectHtml = '';
+      childSelectHtml = `<select class="exhibitionPage__main__contents__detail__category__choose--select" id="child_category" name="exhibition[category_id]">
+
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
                         <select>`;
@@ -18,9 +19,11 @@ $(function () {
     }
 
     // 孫カテゴリーの表示作成
-    function appendGrandchidrenBox(insertHTML) {
-      var grandchildSelectHtml = "";
-      grandchildSelectHtml = `<select class="exhibitionPage__main__contents__detail__category__choose__box--select" id="grandchild_category" name="item[category_id]">
+
+    function appendGrandchidrenBox(insertHTML){
+      var grandchildSelectHtml = '';
+      grandchildSelectHtml = `<select class="exhibitionPage__main__contents__detail__category__choose__box--select" id="grandchild_category" name="exhibition[category_id]">
+
                                 <option value="---" data-category="---">---</option>
                                 ${insertHTML}
                               </select>`;

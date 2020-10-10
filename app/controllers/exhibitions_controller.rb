@@ -6,10 +6,17 @@ class ExhibitionsController < ApplicationController
     @exhibition = Exhibition.new
     @exhibition.images.build
     @category_parent_array = Category.where(ancestry: nil)
+    @exhibition.build_brand
   end
 
   def create
     @exhibition = Exhibition.new(exhibition_params)
+    if params[:img] != nil
+      img = MiniMagick::Image.read(params[:img])
+      img.resize_to_limit "650x387"
+      img.write "public/uploads/image"
+    end
+
     if @exhibition.save
       redirect_to exhibition_path(@exhibition)
     else
@@ -28,7 +35,10 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
+    @exhibition = Exhibition.find(params[:id])
+    @parents = Category.where(ancestry:nil)
   end
+
 
   def confirm
   end
@@ -47,6 +57,7 @@ class ExhibitionsController < ApplicationController
 
   private
   def exhibition_params
+
     params.require(:exhibition).permit(:name, :explanatory, :cost, :prefecture_code, :day, :price, :status, :category_id,:brand_id, images_attributes: [:image, :id, :_destroy]).merge(user_id: current_user.id)
   end
 
@@ -55,6 +66,7 @@ class ExhibitionsController < ApplicationController
     if exhibition.user_id != current_user.id
       redirect_to root_path
     end
+
   end
 
   def set_exhibition
