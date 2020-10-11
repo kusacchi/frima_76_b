@@ -67,7 +67,7 @@ class ExhibitionsController < ApplicationController
   private
   def exhibition_params
 
-    params.require(:exhibition).permit(:name, :explanatory, :cost, :prefecture_code, :day, :price, :status, :category_id,:brand_id, images_attributes: [:image, :id, :_destroy]).merge(user_id: current_user.id)
+    params.require(:exhibition).permit(:name, :explanatory, :cost, :prefecture_code, :day, :price, :status, :category_id, images_attributes: [:image, :id, :_destroy],brand_attributes: [:id, :name]).merge(user_id: current_user.id)
   end
 
   def ensure_current_user
