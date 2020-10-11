@@ -95,6 +95,8 @@ gem 'jquery-rails'
 
 gem 'payjp'
 
+gem 'dotenv-rails'
+
 gem 'rails-i18n'
 
 # for image uploader with AWS S3

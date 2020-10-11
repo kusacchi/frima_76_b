@@ -1,0 +1,154 @@
+.section {
+  margin: 0px auto;
+  max-width: 375px;
+  border-top: 1px solid #eee;
+  padding: 32px 16px;
+}
+
+.item {
+  background-color: #f5f5f5;
+
+  &__container {
+    background-color: $white;
+    margin: 0 auto;
+    width: 700px;
+
+    &__title {
+      font-size: 24px;
+      padding: 32px 16px;
+      font-weight: bold;
+      margin: 0px auto;
+      max-width: 375px;
+      text-align: center;
+    }
+
+    &__content {
+      &__outline {
+        display: flex;
+
+        &__img {
+          width: 80px;
+        }
+
+        &__details {
+          width: 100%;
+          margin-left: 16px;
+
+          &__name {
+            &__text {
+              line-height: 1.4em;
+              margin-bottom: 8px;
+              font-size: 14px;
+            }
+            &__price {
+              text-align: right;
+
+              &__text {
+                font-size: 12px;
+              }
+
+              &__pay {
+                font-size: 15px;
+                font-weight: 600;
+                margin-left: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__pay {
+      border-top: 1px solid #eee;
+
+      &__box {
+        display: flex;
+        justify-content: space-between;
+        font-size: 18px;
+        font-weight: 600;
+        align-items: center;
+        margin: 12px 0;
+
+        &__price {
+          font-size: 24px;
+        }
+      }
+    }
+
+    &__PayMethod {
+      &__title {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        display: flex;
+      }
+
+      &__registration {
+        color: rgb(0, 149, 238);
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        pointer-events: auto;
+        font-size: 14px;
+
+        &__text {
+          margin-left: 5px;
+        }
+      }
+    }
+
+    &__shipping {
+      &__box {
+        &__head {
+          display: flex;
+          justify-content: space-between;
+
+          &__title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+          }
+
+          &__change {
+            font-size: 14px;
+            align-items: center;
+            color: #0095ee;
+            cursor: pointer;
+            display: inline-flex;
+            line-height: 1.4em;
+            text-decoration: none;
+            word-break: normal;
+
+            i {
+              margin: 0px 0px 1px 5px;
+            }
+          }
+        }
+
+        &__address {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &__purchases {
+      &__box {
+        &__text {
+          color: rgb(255, 2, 17);
+          line-height: 1.5;
+          margin-bottom: 24px;
+          font-size: 14px;
+        }
+        &__btn {
+          width: 100%;
+          background-color: #ccc;
+          color: #888;
+          font-size: 17px;
+          min-height: 48px;
+          padding: 0 24px;
+          border: none;
+        }
+      }
+    }
+  }
+}

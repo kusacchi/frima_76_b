@@ -1,0 +1,18 @@
+= render 'devise/shared/header'
+
+.creditcard-main
+  .creditcard-main__contents
+    %h2.creditcard-main__contents__head
+      登録クレジットカード情報
+    %br
+      = image_tag @card_src, alt: @card_brand
+    %br
+      = "**** **** **** " + @customer_card.last4
+    %br
+      = @exp_month + " / " + @exp_year
+    .creditcard-button
+      = link_to card_path, method: :delete do
+        削除する
+
+= render 'devise/shared/promptDl'
+= render 'devise/shared/footer'

@@ -104,10 +104,11 @@
 
         .exhibitions-show-box_button
           - if user_signed_in? && current_user.id == @exhibition.user_id
-            = link_to "#" do
-              出品中です
+          - elsif @exhibition.buyer_id.present?
+            = link_to "#",class: "exhibitions-show-box_button__black" do
+              この商品は既に購入済です
           - elsif user_signed_in?
-            = link_to "#" do
+            = link_to exhibition_purchases_path(@exhibition.id) do
               購入画面に進む
           - else
             = link_to new_user_session_path do
