@@ -15,7 +15,15 @@ Rails.application.routes.draw do
 
   end
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
+  devise_scope :user do
+    get "users/sign_in" => "users/sessions#new"
+    get "users/sign_out" => "users/sessions#destroy"
+    get 'users/purchase' => 'users/registrations#new_purchase'
+    post 'users/purchase' => 'users/registrations#create_purchase'
+  end
 
   root 'items#index'
 
@@ -35,10 +43,7 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_scope :users do
-    get "sign_in", :to => "users/sessions#new"
-    get "sign_out", :to => "users/sessions#destroy"
-  end
+
 
   resources :cards, except: [:index, :edit, :update] do
   end

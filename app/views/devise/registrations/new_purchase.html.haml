@@ -1,0 +1,54 @@
+= render "devise/shared/error_messages", resource: resource
+= render "devise/shared/header", resource: resource
+%body
+  .signup-form{ style: "height:850px" }
+    .signup-form__header
+      %h2 会員情報入力
+    .signup-form__form
+      = form_with model: @purchase, url:  users_purchase_path, id: 'new_user', class: 'new_user', local: true do |f|
+        .field
+          .field__inner
+            %label{:for => "post_code"} 郵便番号
+            %span
+              必須
+            %br/
+            = f.text_field :post_code, :placeholder => "例）123-4567", class: 'input-text'
+        .field
+          .field__inner
+            %label{:for => "prefecture_code"} 都道府県
+            %span
+              必須
+            %br/
+            =f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
+        .field
+          .field__inner
+            %label{:for => "city"} 市町村
+            %span
+              必須
+            %br/
+            = f.text_field :city, :placeholder => "例）札幌市", class: 'input-text'
+        .field
+          .field__inner
+            %label{:for => "address"} 番地
+            %span
+              必須
+            %br/
+            = f.text_field :address, :placeholder => "例））青葉1-1-1", class: 'input-text'
+        .field
+          .field__inner
+            %label{:for => "building_name"} 建物名
+            %span.form-any
+              任意
+            %br/
+            = f.text_field :building_name, :placeholder => "例）柳ビル103", class: 'input-text'
+        .field
+          .field__inner
+            %label{:for => "phone_number"} 電話番号
+            %span.form-any
+              任意
+            %br/
+            = f.text_field :phone_number, :placeholder => "例）03-3581-4321", class: 'input-text'
+        .actions
+          = f.submit "登録する", class: 'btn',url: "root_path", method: :post
+
+= render "devise/shared/footer", resource: resource
