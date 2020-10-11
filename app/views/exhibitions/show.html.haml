@@ -18,12 +18,6 @@
 
         .exhibitions-show-box__photos
           %ul.photos-inner
-            %li
-              = image_tag @exhibition.images.first.image.url, class: 'show-image'
-                -if @exhibition.buyer_id.present?
-                .photos-inner__sold
-                  .photos-inner__sold__inner SOLD
-          %ul
             - @exhibition.images.each do |image|
               %li
                 = image_tag image.image.url, class: 'show-image', :size =>'650x387'
