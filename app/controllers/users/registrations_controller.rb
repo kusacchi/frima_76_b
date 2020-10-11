@@ -26,7 +26,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @purchase = Purchase.new(purchase_params)
     unless @purchase.valid?
       flash.now[:alert] = @purchase.errors.full_messages
-      # render :new and return
     end
     @user.build_purchase(@purchase.attributes)
     @user.save
