@@ -1,0 +1,40 @@
+.creditcard-main {
+  padding: 40px;
+
+  &__contents {
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #dedede;
+
+    &__head {
+      width: 100%;
+      font-weight: bold;
+      font-size: 24px;
+      padding: 10px 0;
+      border-bottom: 1px solid #dedede;
+    }
+
+    img{
+      height: 30px;
+      width: 39px;
+    }
+
+    .creditcard-button {
+      background-color: #3CCACE;
+      border: 1px solid #3CCACE;
+      border-radius: 4px;
+      width: 50%;
+      margin: 15px auto;
+
+      a {
+        line-height: 48px;
+        font-size: 18px;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+}

@@ -10,8 +10,9 @@
 @import "modules/sessions";
 @import "modules/passwords";
 @import "modules/promptDl";
-@import "mypages/show.scss";
-@import "mypages/cards/new.scss";
+@import "users/show.scss";
+@import "cards/new.scss";
+@import "cards/show.scss";
 @import "exhibitions/new.scss";
 @import "exhibitions/show.scss";
-@import "exhibitions/confirm.scss";
+@import "purchases/index.scss";

@@ -20,6 +20,9 @@
           %ul.photos-inner
             %li
               = image_tag @exhibition.images.first.image.url, class: 'show-image'
+                -if @exhibition.buyer_id.present?
+                .photos-inner__sold
+                  .photos-inner__sold__inner SOLD
           %ul
             - @exhibition.images.each do |image|
               %li
@@ -83,8 +86,12 @@
                 = @exhibition.explanatory
 
         .exhibitions-show-box_button
-          - if user_signed_in?
-            = link_to "#" do
+          - if user_signed_in? && current_user.id == @exhibition.user_id
+          - elsif @exhibition.buyer_id.present?
+            = link_to "#",class: "exhibitions-show-box_button__black" do
+              この商品は既に購入済です
+          - elsif user_signed_in?
+            = link_to exhibition_purchases_path(@exhibition.id) do
               購入画面に進む
           - else
             = link_to new_user_session_path do
