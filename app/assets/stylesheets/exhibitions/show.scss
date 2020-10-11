@@ -12,7 +12,7 @@
       margin: 0 auto;
 
       .exhibitions-show-box {
-        
+
         background-color: white;
         padding: 24px 40px 40px;
         font-size: 30px;
@@ -51,10 +51,35 @@
             width: 600px;
             height: 400px;
             margin: 0 auto;
-            
+            position: relative;
 
             .show-image {
               object-fit: cover;
+            }
+
+            &__sold{
+              width: 0;
+              height: 0;
+              border-width: 120px 120px 0 0;
+              border-color: #ea352d transparent transparent transparent;
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 1;
+              border-style: solid;
+
+              &__inner{
+                top: -90px;
+                font-size: 30px;
+                position: absolute;
+                left: 0;
+                z-index: 2;
+                color: #fff;
+                transform: rotate(-45deg);
+                letter-spacing: 2px;
+                font-weight: 600;
+              }
             }
           }
 
@@ -141,15 +166,20 @@
       }
 
       .exhibitions-show-box_button {
-        display: block;
         margin: 16px 0;
         background: $lightBlue;
         line-height: 56px;
         text-align: center;
 
         a{
+          display: block;
           text-decoration: none;
           color: white;
+        }
+
+        &__black {
+          background: #dedede;
+          cursor: not-allowed;
         }
       }
 

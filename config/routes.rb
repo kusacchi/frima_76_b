@@ -5,8 +5,15 @@ Rails.application.routes.draw do
       get 'categories/get_category_children', to: 'exhibitions#get_category_children', defaults: { format: 'json' }
       get 'categories/get_category_grandchildren', to: 'exhibitions#get_category_grandchildren', defaults: { format: 'json' }
     end
-  end
 
+    member do
+      post 'pay'=>   'exhibitions#pay', as: 'pay'
+    end
+
+    resources :purchases, only: [:index] do
+    end
+
+  end
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -36,12 +43,9 @@ Rails.application.routes.draw do
     end
   end
 
-  
-  get "exhibitions/confirm"
 
-  
 
-  resources :cards, only: [:new, :create] do
+  resources :cards, except: [:index, :edit, :update] do
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
