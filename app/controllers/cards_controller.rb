@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
-    redirect_to cards_path(current_user.id) if @card.present?
+    redirect_to card_path(current_user.id) if @card.present?
   end
 
   def create
@@ -18,7 +18,6 @@ class CardsController < ApplicationController
         card: params["payjp_token"],
         metadata: {user_id: current_user.id}
       )
-      binding.pry
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
 
       if @card.save
