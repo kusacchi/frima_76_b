@@ -101,6 +101,9 @@ gem 'rails-i18n'
 
 # for image uploader with AWS S3
 gem 'carrierwave'
+
+gem 'mini_magick'
+
 gem 'fog'
 
 gem 'ancestry'

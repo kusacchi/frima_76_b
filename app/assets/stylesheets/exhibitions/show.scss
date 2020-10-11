@@ -1,3 +1,4 @@
+
 .exhibitions-show-wrapper {
   background-color: #f5f5f5;
   border-top: 5px solid white;
@@ -11,6 +12,7 @@
       margin: 0 auto;
 
       .exhibitions-show-box {
+
         background-color: white;
         padding: 24px 40px 40px;
         font-size: 30px;
@@ -46,7 +48,6 @@
           margin-top: 30px;
 
           .photos-inner {
-            background-color: #d3d3d3;
             width: 600px;
             height: 400px;
             margin: 0 auto;
@@ -97,7 +98,7 @@
         }
 
         &__price {
-          margin: 24px 0 24px;
+          margin: 40px 0 24px;
           text-align: center;
           display: flex;
           flex-direction: column;

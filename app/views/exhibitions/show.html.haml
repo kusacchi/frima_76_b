@@ -7,7 +7,7 @@
       .exhibitions-show-box
         %h1.exhibitions-show-box__name
           = @exhibition.name
-
+        -# 商品編集ページへの遷移は編集ページが未実装のため後ほどになります
         - if user_signed_in? && current_user.id == @exhibition.user_id
           %ul.exhibitions-show-box__btn
             %li
@@ -26,7 +26,7 @@
           %ul
             - @exhibition.images.each do |image|
               %li
-                = image_tag image.image.url, class: 'show-subimage'
+                = image_tag image.image.url, class: 'show-image', :size =>'650x387'
 
         .exhibitions-show-box__price
           %span
@@ -51,7 +51,30 @@
               %th
                 カテゴリー
               %td
-                = @exhibition.category
+                - @parents.each do |parent|
+                  -if @exhibition.category_id == parent.id
+                    = link_to '#' do
+                      = parent.name
+                      %br
+                  - parent.children.each do |child|
+                    -if @exhibition.category_id == child.id
+                      = link_to '#' do
+                        = parent.name
+                        %br
+                      = link_to '#' do
+                        = child.name
+                        %br
+                    - child.children.each do |grandchild|
+                      -if @exhibition.category_id == grandchild.id
+                        = link_to '#' do
+                          = parent.name
+                        %br
+                        = link_to '#' do
+                          = child.name
+                        %br
+                        = link_to '#' do
+                          = grandchild.name
+                        %br
             %tr
               %th
                 ブランド
@@ -73,7 +96,7 @@
               %th
                 発送元の地域
               %td
-                = @exhibition.prefecture_code
+                = JpPrefecture::Prefecture.find(@exhibition.prefecture_code).name
             %tr
               %th
                 発送までの日数

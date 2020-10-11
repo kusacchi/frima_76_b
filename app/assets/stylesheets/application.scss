@@ -2,8 +2,12 @@
 @import "config/colors";
 @import "items.scss";
 @import "categories.scss";
+@import "flash.scss";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "slick-theme"; 
+@import "slick";
+@import "show_slick";
 @import "modules/header";
 @import "modules/footer";
 @import "modules/registrations";
