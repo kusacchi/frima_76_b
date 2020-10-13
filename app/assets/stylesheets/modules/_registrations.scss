@@ -43,6 +43,10 @@ body {
             vertical-align: top;
             font-weight: 600;
           }
+          &__message {
+            color:#888888;
+            font-size: 14px;
+          }
           label {
             font-weight: bold;
             font-size: 14px;
@@ -80,24 +84,10 @@ body {
           }
           .input-date {
             margin-top: 8px;
-            #user_birth_date_1i {
+            select {
+              height: 48px;
+              width: 85px;
               margin-right: 5px;
-              height: 48px;
-              width: 76px;
-              border: 1px solid #ccc;
-              border-radius: 4px;
-            }
-            #user_birth_date_2i {
-              margin: 0 5px;
-              height: 48px;
-              width: 76px;
-              border: 1px solid #ccc;
-              border-radius: 4px;
-            }
-            #user_birth_date_3i {
-              margin-left: 5px;
-              height: 48px;
-              width: 76px;
               border: 1px solid #ccc;
               border-radius: 4px;
             }
@@ -105,6 +95,17 @@ body {
           .text {
             font-size: 14px;
             color: #333333;
+          }
+          #prefecture_code {
+            width: 343px;
+            height: 48px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            cursor: pointer;
           }
 
           #purchase_prefecture_code {

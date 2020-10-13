@@ -5,6 +5,7 @@ class PurchasesController < ApplicationController
   def index
     @exhibition = Exhibition.find(params[:exhibition_id])
     @images = @exhibition.images.all
+    @purchase = Purchase.find_by(user_id: current_user.id)
 
     if user_signed_in?
       @user = current_user
@@ -29,6 +30,7 @@ class PurchasesController < ApplicationController
 
         @exp_month = @customer_card.exp_month.to_s
         @exp_year = @customer_card.exp_year.to_s.slice(2,3)
+
       else
       end
 

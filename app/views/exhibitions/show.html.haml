@@ -7,7 +7,7 @@
       .exhibitions-show-box
         %h1.exhibitions-show-box__name
           = @exhibition.name
-        -# 商品編集ページへの遷移は編集ページが未実装のため後ほどになります
+
         - if user_signed_in? && current_user.id == @exhibition.user_id
           %ul.exhibitions-show-box__btn
             %li

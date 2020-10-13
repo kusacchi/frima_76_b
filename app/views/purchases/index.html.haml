@@ -9,7 +9,8 @@
           = image_tag @exhibition.images.first.image.url, height: '80', width: '80', class: "item__container__content__outline__img__figure"
         .item__container__content__outline__details
           .item__container__content__outline__details__name
-            %p.item__container__content__outline__details__name__text @exhibition.name
+            %p.item__container__content__outline__details__name__text
+              = @exhibition.name
             %p.item__container__content__outline__details__name__price
               %span.item__container__content__outline__details__name__price__text 送料込み (税込)
               %span.item__container__content__outline__details__name__price__pay
@@ -22,11 +23,6 @@
           = "¥" + i_price
     .item__container__PayMethod.section
       %h3.item__container__PayMethod__title 支払い方法
-      = link_to "", class: "item__container__shipping__box__head__change" do
-        変更する
-        %i.fas.fa-chevron-right{"aria-hidden": true, heigh: "16", viewbox: "0 0 24 24", width: "16"}
-      -#↓変数を変えていかないといけないかもしれないです
-      -# 参照記事→ https://qiita.com/mylevel/items/7462ca28260581509d19
       .single-container
         %section.creditcard_section
           %h3 クレジットカード一覧
@@ -51,15 +47,25 @@
             変更する
             %i.fas.fa-chevron-right{"aria-hidden": true, heigh: "16", viewbox: "0 0 24 24", width: "16"}
         .item__container__shipping__box__address
-          %p 〒456-2224
-          %p 大阪府 大阪市北区梅田 4-4-4
-          %p 佐藤太郎
+        %p
+          〒
+          = @purchase.post_code
+        %p
+          = JpPrefecture::Prefecture.find(@purchase.prefecture_code).name
+          = @purchase.city
+          = @purchase.address
+          = @purchase.building_name
+        %p
+          = current_user.family_name
+          = current_user.first_name
     .item__container__purchases.section
       .item__container__purchases__box
-        %p.item__container__purchases__box__text
-          支払い方法を完了してください
-          = link_to pay_exhibition_path(@exhibition.id), method: :post do
+        - if @user.card.present?
+          = link_to pay_exhibition_path(@exhibition.id), {class: "item__container__purchases__box__text__"}, method: :post do
             .item__container__purchases__box__btn
               購入する
+        - else
+          %p.item__container__purchases__box__text
+            支払い方法を完了してください
 
 = render 'devise/shared/footer'
