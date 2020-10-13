@@ -249,7 +249,13 @@
       = image_tag '/images/logo-white.png'
   %p © FURIMA
 
-= link_to new_exhibition_path ,"data-turbolinks": false do
-  .exhibitionBtn
-    %span.exhibitionBtn__text 出品する
-    = image_tag '/images/icon_camera.png', class: 'exhibitionBtn__icon'
+- if user_signed_in?
+  = link_to new_exhibition_path, "data-turbolinks": false do
+    .exhibitionBtn
+      %span.exhibitionBtn__text 出品する
+      = image_tag '/images/icon_camera.png', class: 'exhibitionBtn__icon'
+- else
+  = link_to new_user_session_path, "data-turbolinks": false do
+    .exhibitionBtn
+      %span.exhibitionBtn__text 出品する
+      = image_tag '/images/icon_camera.png', class: 'exhibitionBtn__icon'

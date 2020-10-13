@@ -36,8 +36,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
   def purchase_params
-    params.require(:purchase).permit(:city, :address, :post_code, :prefecture_code, :building_name, :phone_number)  
-  end 
+    params.require(:purchase).permit(:city, :address, :post_code, :prefecture_code, :building_name, :phone_number)
+  end
   # GET /resource/sign_up
   # def new
   #   super

@@ -12,7 +12,9 @@
             %span
               必須
             %br/
-            = f.text_field :post_code, :placeholder => "例）123-4567", class: 'input-text'
+            = f.text_field :post_code, :placeholder => "例）1234567", class: 'input-text'
+            %p.field__inner__message
+              *ハイフンなしで記入してください
         .field
           .field__inner
             %label{:for => "prefecture_code"} 都道府県
@@ -47,7 +49,9 @@
             %span.form-any
               任意
             %br/
-            = f.text_field :phone_number, :placeholder => "例）03-3581-4321", class: 'input-text'
+            = f.text_field :phone_number, :placeholder => "例）0335814321", class: 'input-text'
+            %p.field__inner__message
+              *ハイフンなしで記入してください
         .actions
           = f.submit "登録する", class: 'btn',url: "root_path", method: :post
 
