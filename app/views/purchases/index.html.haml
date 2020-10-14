@@ -61,7 +61,7 @@
     .item__container__purchases.section
       .item__container__purchases__box
         - if @user.card.present?
-          = link_to pay_exhibition_path(@exhibition.id), {class: "item__container__purchases__box__text__"}, method: :post do
+          = link_to pay_exhibition_path(@exhibition.id), method: :post do
             .item__container__purchases__box__btn
               購入する
         - else
