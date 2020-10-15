@@ -18,9 +18,9 @@ class ExhibitionsController < ApplicationController
     end
 
     if @exhibition.save
-      redirect_to exhibition_path(@exhibition)
+      redirect_to exhibition_path(@exhibition), notice: '商品が出品されました'
     else
-      redirect_to new_exhibition_path
+      redirect_to new_exhibition_path, notice: '商品の出品に失敗しました'
     end
   end
 

@@ -25,7 +25,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session["devise.regist_data"]["user"])
     @purchase = Purchase.new(purchase_params)
     unless @purchase.valid?
-      flash.now[:alert] = @purchase.errors.full_messages
+      flash.now[:alert] = "登録に失敗しました。入力内容を確認してください"
+      render :new_purchase and return
     end
     @user.build_purchase(@purchase.attributes)
     @user.save

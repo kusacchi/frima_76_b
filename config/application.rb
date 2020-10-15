@@ -23,4 +23,5 @@ module Frima76B
   #       controller_specs: false, 
   #       routing_specs: false
   #  end
+
 end
