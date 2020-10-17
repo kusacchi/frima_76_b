@@ -52,6 +52,7 @@ Things you may want to cover:
 |prefecture_code|integer|null: false|
 |day|string|null: false|
 |price|string|null: false|
+|buyer_id|string||
 |user_id|integer|null: false, foreign_key: true|
 |brand_id|integer|foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
@@ -106,6 +107,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ancestry|string|-------|
 ### Association
 - has_many :exhibitions
 * gem ancestryを使用する
