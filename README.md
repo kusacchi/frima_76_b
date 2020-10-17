@@ -52,7 +52,7 @@ Things you may want to cover:
 |prefecture_code|integer|null: false|
 |day|string|null: false|
 |price|string|null: false|
-|buyer_id|string||
+|buyer_id|integer||
 |user_id|integer|null: false, foreign_key: true|
 |brand_id|integer|foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
