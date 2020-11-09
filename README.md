@@ -1,30 +1,100 @@
-# README
+# 概要
+テックキャンプのチーム開発にて作成したアプリケーションを紹介します。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション情報
+## アプリケーション概要
+フリーマーケットのWebアプリケーションをチームで開発しました。
+### 接続先情報
+URL  http://3.114.76.107/
+### ID/Pass(basic認証キー)
+ID: admin760b
 
-Things you may want to cover:
+Pass: pass760b
 
-* Ruby version
+### テスト用アカウント等
+#### 購入者用
+メールアドレス: buyer@gmail.com
 
-* System dependencies
+パスワード: buyer11
 
-* Configuration
+#### 購入用カード情報
+番号： 4012888888881881
 
-* Database creation
+期限： Fri Oct 30 2020 00:00:00 GMT+0900 (日本標準時)
 
-* Database initialization
+セキュリティコード：9876
 
-* How to run the test suite
+#### 出品者用
+メールアドレス名: seller@gmail.com
 
-* Services (job queues, cache servers, search engines, etc.)
+パスワード: seller11
 
-* Deployment instructions
+# 開発状況
+## 開発環境
+Ruby/Ruby on Rails/MySQL/Java Script/Github/AWS/Visual Studio Code
+## 開発期間と平均作業時間
+開発期間：2020年 8/1~10/15 (76日間)
 
-* ...
+1日あたりの平均作業時間：3
 
-# frima_76_bのDB設計
+## 開発体制
+人数：3
 
+アジャイル型開発（スクラム）
+
+Trelloによるタスク管理
+
+# 動作確認方法
+Chromeの最新版を利用してアクセスしてください。
+
+ただしデプロイ等で接続できないタイミングもございます。その際は少し時間をおいてから接続ください。
+
+接続先およびログイン情報については、上記の通りです。
+
+同時に複数の方がログインしている場合に、ログインできない可能性がございます。
+
+テストアカウントでログイン→トップページから出品ボタン押下→商品情報入力→商品出品
+
+テストアカウントでログイン→トップページ下にあるピックアップカテゴリーから商品を選択→商品詳細画面から購入画面に進むを選択→商品購入
+
+確認後、ログアウト処理をお願いします。
+
+# 制作メンバー
+## 草野晴也
+### 担当箇所
+&emsp;デプロイ担当  
+&emsp;AWS EC2〜S3導入  
+&emsp;basic認証  
+&emsp;ユーザーマイページ  
+&emsp;商品詳細画面  
+&emsp;商品出品画面  
+&emsp;商品購入機能（Payjp)  
+&emsp;クレジットカード登録（Payjp)  
+&emsp;クレジットカード情報表示(Payjp)
+
+## 吉田大地
+### 担当箇所
+&emsp;トップページ  
+&emsp;商品一覧表示  
+&emsp;ユーザー新規登録/ログイン（サーバーサイド）  
+&emsp;商品購入確認画面  
+&emsp;商品購入機能  
+&emsp;商品出品機能  
+&emsp;商品情報編集
+
+## 濱田和輝
+### 担当箇所
+&emsp;スクラムマスター  
+&emsp;DB設計  
+&emsp;ユーザー新規登録/ログイン（フロントエンド）  
+&emsp;商品購入確認画面  
+&emsp;商品出品機能  
+&emsp;商品詳細表示  
+&emsp;カテゴリ機能  
+&emsp;商品情報編集  
+&emsp;商品削除
+
+# DB設計
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
